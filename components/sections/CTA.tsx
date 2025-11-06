@@ -15,7 +15,7 @@ export function CTA() {
 
   return (
     <section className="py-24 bg-gradient-to-br from-gray-50 to-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-200">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
             Ready to transform your business?

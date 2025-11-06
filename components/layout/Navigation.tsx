@@ -9,7 +9,6 @@ const navLinks = [
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
   { href: '/solutions', label: 'Solutions' },
-  { href: '/contact', label: 'Contact' },
 ];
 
 export function Navigation() {
@@ -40,7 +39,7 @@ export function Navigation() {
           href="/contact"
           className="px-6 py-2.5 bg-black text-white rounded-lg text-sm font-semibold hover:bg-indigo-600 transition-all hover:-translate-y-0.5 hover:shadow-lg"
         >
-          Get Started
+          Contact
         </Link>
       </nav>
 
@@ -90,7 +89,7 @@ export function Navigation() {
               onClick={() => setIsOpen(false)}
               className="px-4 py-2 bg-black text-white rounded-lg text-center font-semibold hover:bg-indigo-600 transition-colors"
             >
-              Get Started
+              Contact
             </Link>
           </nav>
         </div>

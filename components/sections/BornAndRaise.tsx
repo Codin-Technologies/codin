@@ -34,7 +34,7 @@ export function BornAndRaise() {
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600 rounded-full blur-3xl" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">

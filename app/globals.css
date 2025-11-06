@@ -25,7 +25,7 @@ html {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -33,10 +33,10 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #6366f1;
+  background: #000000;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #4f46e5;
+  background: #111111;
 }

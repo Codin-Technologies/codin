@@ -1,4 +1,5 @@
 import { Card } from '@/components/ui/Card';
+import { Testimonials } from '@/components/sections/Testimonials';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -38,15 +39,15 @@ export default function AboutPage() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
+      <section className="py-20 bg-linear-to-br from-gray-50 to-white">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
             <span className="inline-block px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-semibold text-indigo-600 mb-4">
               Our Story
             </span>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-              Born from Vision,{' '}
-              <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              Born from Vision,
+              <span className="block bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
                 Raised by Purpose
               </span>
             </h1>
@@ -61,7 +62,7 @@ export default function AboutPage() {
 
       {/* Mission & Vision */}
       <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
             <Card>
               <div className="w-16 h-16 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl flex items-center justify-center text-3xl mb-6">
@@ -91,8 +92,8 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-24 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-linear-to-br from-gray-50 to-white">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-4xl font-bold mb-12 text-center">Our Journey</h2>
             <div className="space-y-8">
@@ -111,9 +112,63 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Team Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-12 gap-10 items-start">
+            {/* Left Text Block */}
+            <div className="lg:col-span-5">
+              <h2 className="text-5xl font-bold tracking-tight mb-6">Meet Our Team</h2>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                We are talented individuals who are passionate about bringing ideas to life. With a diverse range of backgrounds and skill sets, we collaborate to produce effective solutions for our clients.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-8">
+                Together, our creative team is committed to delivering impactful work that exceeds expectations.
+              </p>
+              <a href="#" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-amber-500 text-black font-semibold hover:bg-amber-400 transition-colors">
+                Read More <span>→</span>
+              </a>
+            </div>
+
+            {/* Right Mosaic Grid */}
+            <div className="lg:col-span-7 grid grid-cols-2 gap-6">
+              {/* Large top-left portrait */}
+              <div className="col-span-1">
+                <div className="w-full aspect-[4/5] rounded-xl bg-gray-100" />
+              </div>
+              {/* Highlighted founder card */}
+              <div className="col-span-1 relative">
+                <div className="w-full aspect-[4/5] rounded-xl bg-gray-300" />
+                <div className="absolute inset-0 rounded-xl bg-black/70 text-white flex flex-col justify-end p-6">
+                  <div className="text-lg font-semibold">Emma Newman</div>
+                  <div className="text-xs uppercase tracking-wider text-gray-300">Founder</div>
+                  <div className="flex items-center gap-4 mt-3 text-white/80">
+                    <span>Behance</span>
+                    <span>Dribbble</span>
+                    <span>Twitter</span>
+                    <span>GitHub</span>
+                  </div>
+                </div>
+              </div>
+              {/* Bottom-left portrait */}
+              <div className="col-span-1">
+                <div className="w-full aspect-[4/5] rounded-xl bg-gray-100" />
+              </div>
+              {/* Bottom-right portrait */}
+              <div className="col-span-1">
+                <div className="w-full aspect-[4/5] rounded-xl bg-gray-100" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <Testimonials />
+
       {/* Location */}
       <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <Card className="text-center max-w-3xl mx-auto">
             <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-3xl mb-6 mx-auto">
               📍

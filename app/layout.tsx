@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { BackToTop } from '@/components/shared/BackToTop';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -70,6 +71,7 @@ export default function RootLayout({
       <body className="antialiased">
         <Header />
         <main>{children}</main>
+        <BackToTop />
         <Footer />
       </body>
     </html>

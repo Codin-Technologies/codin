@@ -37,7 +37,7 @@ export function Stats() {
 
   return (
     <section className="py-20 bg-white border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <p className="text-center text-sm uppercase tracking-wider text-gray-500 font-semibold mb-12">
           Trusted by Leading Organizations
         </p>

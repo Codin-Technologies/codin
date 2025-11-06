@@ -69,34 +69,21 @@ const solutions = [
   },
 ];
 
-const platforms = [
-  {
-    title: 'Codin Enterprise Platform',
-    description:
-      'All-in-one platform for SMEs to manage operations, analytics, and customer engagement.',
-    features: ['CRM', 'Analytics', 'Automation', 'Integration'],
-  },
-  {
-    title: 'Codin Cloud Infrastructure',
-    description:
-      'Scalable, secure cloud infrastructure optimized for African business needs.',
-    features: ['High Availability', 'Security', 'Cost Optimization', 'Support'],
-  },
-];
+// Removed Proprietary Platforms section per request
 
 export default function SolutionsPage() {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
+      <section className="py-20 bg-linear-to-br from-gray-50 to-white">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
             <span className="inline-block px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-semibold text-indigo-600 mb-4">
               Our Solutions
             </span>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-              Tailored Solutions for{' '}
-              <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              Tailored Solutions for
+              <span className="block bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
                 Your Industry
               </span>
             </h1>
@@ -111,14 +98,14 @@ export default function SolutionsPage() {
       {/* Industry Solutions */}
       {solutions.map((solution) => (
         <section key={solution.category} className="py-24 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl md:text-4xl font-bold mb-12">
               {solution.category}
             </h2>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {solution.items.map((item) => (
                 <Card key={item.title}>
-                  <div className="w-16 h-16 bg-gradient-to-br from-indigo-600 to-purple-600 rounded-xl flex items-center justify-center text-3xl mb-6">
+                  <div className="w-16 h-16 bg-linear-to-br from-indigo-600/30 to-purple-600/30 rounded-xl flex items-center justify-center text-3xl mb-6">
                     {item.icon}
                   </div>
                   <h3 className="text-xl font-bold mb-3">{item.title}</h3>
@@ -129,38 +116,6 @@ export default function SolutionsPage() {
           </div>
         </section>
       ))}
-
-      {/* Proprietary Platforms */}
-      <section className="py-24 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Proprietary Platforms</h2>
-          <p className="text-xl text-gray-600 mb-12 max-w-3xl">
-            Built specifically for African SMEs, our platforms combine global best 
-            practices with local business understanding.
-          </p>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            {platforms.map((platform) => (
-              <Card key={platform.title} className="relative overflow-hidden group">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-600 to-purple-600" />
-                <h3 className="text-2xl font-bold mb-3">{platform.title}</h3>
-                <p className="text-gray-600 leading-relaxed mb-6">{platform.description}</p>
-                
-                <div className="flex flex-wrap gap-2">
-                  {platform.features.map((feature) => (
-                    <span
-                      key={feature}
-                      className="px-3 py-1 bg-gray-100 rounded-full text-sm font-medium text-gray-700"
-                    >
-                      {feature}
-                    </span>
-                  ))}
-                </div>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-24 bg-black text-white">
