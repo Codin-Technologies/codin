@@ -67,9 +67,9 @@ export default function ContactPage() {
             <span className="inline-block px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-semibold text-indigo-600 mb-4">
               Get in Touch
             </span>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
+            <h1 className="text-5xl md:text-6xl font-bold mb-4 tracking-tight">
               Let's Build Something
-              <span className="block bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="block bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent py-3">
                 Extraordinary
               </span>
             </h1>

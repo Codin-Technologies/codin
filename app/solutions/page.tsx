@@ -83,7 +83,7 @@ export default function SolutionsPage() {
             </span>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
               Tailored Solutions for
-              <span className="block bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="block bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent pb-5">
                 Your Industry
               </span>
             </h1>

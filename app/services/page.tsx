@@ -89,14 +89,14 @@ export default function ServicesPage() {
       {/* Hero Section */}
       <section className="py-20 bg-linear-to-br from-gray-50 to-white">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className="max-w-4xl mx-auto text-center">
             <span className="inline-block px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-semibold text-indigo-600 mb-4">
               Our Services
             </span>
             <h1 className="text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-              Comprehensive Technology
-              <span className="block bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                Solutions
+              Comprehensive
+              <span className="block bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent pb-5">
+               Technology Solutions
               </span>
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed mb-8">
@@ -117,7 +117,7 @@ export default function ServicesPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service) => (
               <Card key={service.title} className="group">
-                <div className="w-16 h-16 bg-linear-to-br from-indigo-600/30 to-purple-600/30 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
+                <div className="w-16 h-16 bg-linear-to-br from-indigo-600/10 to-purple-600/10 rounded-xl flex items-center justify-center text-3xl mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                   {service.icon}
                 </div>
                 <h2 className="text-2xl font-bold mb-3">{service.title}</h2>
