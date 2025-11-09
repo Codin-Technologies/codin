@@ -224,7 +224,7 @@ export function DataTable<TData, TValue>({
             table.setPageSize(Number(value));
           }}
         >
-          <SelectTrigger className="w-fit outline-none focus:ring-0">
+          <SelectTrigger className="outline-none focus:ring-0">
             <SelectValue placeholder="Select page size" />
           </SelectTrigger>
           <SelectContent>

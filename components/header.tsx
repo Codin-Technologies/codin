@@ -2,7 +2,7 @@ import { Bell } from "lucide-react";
 
 export default function Header({ user = { name: "John Doe", avatar: "/avatar.png" } }) {
   return (
-    <header className="flex items-center justify-between px-6 py-4 bg-white border-b rounded-t-lg shadow-sm">
+    <header className="flex items-center justify-between px-6 py-4 bg-white border-b rounded-t-lg shadow-sm w-full">
       <div className="flex items-center gap-3">
         {/* <img src="/logo.svg" alt="TMS Logo" className="h-8 w-8" /> */}
         <span className="text-xl font-bold text-black">TMS</span>
