@@ -7,7 +7,7 @@ const TMSLayout = ({ children }: { children: ReactNode }) => {
     <div className="flex flex-col  h-screen bg-gray-100">
       <div className="h-[7vh] flex">
         <div className="w-64 bg-white flex items-center justify-center">
-          <h2 className="text-2xl font-bold text-black">TMS Navigation</h2>
+          <h2 className="text-2xl font-bold text-black">TMS Navigation </h2>
         </div>
         <div className="flex-1">
           <Header
