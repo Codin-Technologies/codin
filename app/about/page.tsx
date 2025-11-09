@@ -157,7 +157,7 @@ export default function AboutPage() {
                 members={[
                   {
                     image:
-                      "https://photos.app.goo.gl/YfV4qMpfTNE1VPg86",
+                      "https://i.postimg.cc/vmtDNzfK/IMG-0522-2.jpg",
                     name: "Kelvin Kijazi",
                     position: "Co-Founder & CEO",
                     socialLinks: [
