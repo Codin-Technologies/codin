@@ -68,7 +68,7 @@ export default function AboutPage() {
           <div className="grid md:grid-cols-2 gap-8">
             <Card>
               <div className="w-16 h-16 bg-linear-to-br from-indigo-600 to-purple-600 rounded-xl flex items-center justify-center text-3xl mb-6">
-                🎯
+  
               </div>
               <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
               <p className="text-gray-600 leading-relaxed">
@@ -81,7 +81,7 @@ export default function AboutPage() {
 
             <Card>
               <div className="w-16 h-16 bg-linear-to-br from-emerald-500 to-green-600 rounded-xl flex items-center justify-center text-3xl mb-6">
-                👁️
+                
               </div>
               <h2 className="text-2xl font-bold mb-4">Our Vision</h2>
               <p className="text-gray-600 leading-relaxed">
@@ -157,36 +157,35 @@ export default function AboutPage() {
                 members={[
                   {
                     image:
-                      "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
-                    name: "Emma Newman",
-                    position: "Founder & CEO",
+                      "https://photos.app.goo.gl/YfV4qMpfTNE1VPg86",
+                    name: "Kelvin Kijazi",
+                    position: "Co-Founder & CEO",
                     socialLinks: [
                       {
                         platform: "LinkedIn",
-                        url: "https://linkedin.com/in/emma-newman",
+                        url: "www.linkedin.com/in/kelvin-kijazi-b1b7612a2",
                       },
-                      { platform: "Twitter", url: "https://twitter.com/emma" },
-                      { platform: "GitHub", url: "https://github.com/emma" },
+                      { platform: "GitHub", url: "https://https://github.com/KelvinKijazi" },
                     ],
                   },
                   {
                     image:
-                      "https://images.unsplash.com/photo-1686628269259-84b867e8c036?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
-                    name: "John Doe",
+                      "https://pbs.twimg.com/profile_images/1705305537028444160/64qU58sF.jpg",
+                    name: "Moody Amin",
                     position: "CTO",
                     socialLinks: [
                       {
                         platform: "LinkedIn",
-                        url: "https://linkedin.com/in/john-doe",
+                        url: "https://www.linkedin.com/in/moody-mshana/",
                       },
-                      { platform: "GitHub", url: "https://github.com/johndoe" },
+                      { platform: "GitHub", url: "https://github.com/heismoody" },
                     ],
                   },
                   {
                     image:
                       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
-                    name: "Sarah Smith",
-                    position: "Design Lead",
+                    name: "George Massam",
+                    position: "COO",
                     socialLinks: [
                       {
                         platform: "LinkedIn",
@@ -202,8 +201,8 @@ export default function AboutPage() {
                   {
                     image:
                       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
-                    name: "David Wilson",
-                    position: "Lead Developer",
+                    name: "Frank Kiruma",
+                    position: "Lead AI Developer",
                     socialLinks: [
                       {
                         platform: "LinkedIn",
