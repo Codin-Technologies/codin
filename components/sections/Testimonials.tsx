@@ -84,7 +84,7 @@ export function Testimonials() {
   return (
     <section className="py-10 bg-white">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center mb-5">
+        <div className="max-w-4xl mx-auto text-center mb-5 pt-10">
           <h2 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">
             Customer Voices:
             <span className="block bg-linear-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent pb-5">
@@ -95,8 +95,10 @@ export function Testimonials() {
 
         <div className="flex relative justify-around items-center h-40 mb-5 max-w-3xl mx-auto">
           <div
-            className={`absolute  size-20 rounded-full overflow-hidden left-[0%] top-[10%] ${current === 0 ? "border-4 border-indigo-600 size-26": ""}`}
-                              onClick={() => handleAvatarClick(0)}
+            className={`absolute  size-20 rounded-full overflow-hidden left-[0%] top-[10%] ${
+              current === 0 ? "border-4 border-indigo-600 size-26" : ""
+            }`}
+            onClick={() => handleAvatarClick(0)}
           >
             <img
               src={testimonials[0].image}
@@ -105,7 +107,9 @@ export function Testimonials() {
             />
           </div>
           <div
-            className={`absolute  size-20 rounded-full overflow-hidden left-[15%] ${current === 1 ? "border-4 border-indigo-600 size-26": ""}`}
+            className={`absolute  size-20 rounded-full overflow-hidden left-[15%] ${
+              current === 1 ? "border-4 border-indigo-600 size-26" : ""
+            }`}
             onClick={() => handleAvatarClick(1)}
           >
             <img
@@ -115,9 +119,10 @@ export function Testimonials() {
             />
           </div>
           <div
-            className={`absolute  size-20 rounded-full overflow-hidden left-[30%] top-[10%] ${current === 2 ? "border-4 border-indigo-600 size-26": ""}`}
+            className={`absolute  size-20 rounded-full overflow-hidden left-[30%] top-[10%] ${
+              current === 2 ? "border-4 border-indigo-600 size-26" : ""
+            }`}
             onClick={() => handleAvatarClick(2)}
-          
           >
             <img
               src={testimonials[2].image}
@@ -126,9 +131,10 @@ export function Testimonials() {
             />
           </div>
           <div
-            className={`absolute  size-20 rounded-full overflow-hidden left-[45%] ${current === 3 ? "border-4 border-indigo-600 size-26": ""}`}
+            className={`absolute  size-20 rounded-full overflow-hidden left-[45%] ${
+              current === 3 ? "border-4 border-indigo-600 size-26" : ""
+            }`}
             onClick={() => handleAvatarClick(3)}
-          
           >
             <img
               src={testimonials[3].image}
@@ -137,9 +143,10 @@ export function Testimonials() {
             />
           </div>
           <div
-            className={`absolute  size-20 rounded-full overflow-hidden left-[60%] top-[10%] ${current === 4 ? "border-4 border-indigo-600 size-26": ""}`}
+            className={`absolute  size-20 rounded-full overflow-hidden left-[60%] top-[10%] ${
+              current === 4 ? "border-4 border-indigo-600 size-26" : ""
+            }`}
             onClick={() => handleAvatarClick(4)}
-          
           >
             <img
               src={testimonials[4].image}
@@ -148,9 +155,10 @@ export function Testimonials() {
             />
           </div>
           <div
-            className={`absolute  size-20 rounded-full overflow-hidden left-[75%] ${current === 5 ? "border-4 border-indigo-600 size-26": ""}`}
+            className={`absolute  size-20 rounded-full overflow-hidden left-[75%] ${
+              current === 5 ? "border-4 border-indigo-600 size-26" : ""
+            }`}
             onClick={() => handleAvatarClick(5)}
-          
           >
             <img
               src={testimonials[5].image}
@@ -159,9 +167,10 @@ export function Testimonials() {
             />
           </div>
           <div
-            className={`absolute  size-20 rounded-full overflow-hidden left-[90%] top-[10%] ${current === 6 ? "border-4 border-indigo-600 size-26": ""}`}
+            className={`absolute  size-20 rounded-full overflow-hidden left-[90%] top-[10%] ${
+              current === 6 ? "border-4 border-indigo-600 size-26" : ""
+            }`}
             onClick={() => handleAvatarClick(6)}
-          
           >
             <img
               src={testimonials[5].image}
