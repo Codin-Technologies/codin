@@ -170,7 +170,7 @@ export default function AboutPage() {
                   },
                   {
                     image:
-                      "https://pbs.twimg.com/profile_images/1705305537028444160/64qU58sF.jpg",
+                      "https://i.postimg.cc/rmWTHyBK/20251109-204838.jpg",
                     name: "Moody Amin",
                     position: "CTO",
                     socialLinks: [
