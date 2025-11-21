@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 interface LoginFormData {
   email: string;
@@ -10,6 +12,7 @@ interface LoginFormData {
 }
 export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const {
     register,
@@ -20,12 +23,22 @@ export default function LoginPage() {
   const onSubmit = async (data: LoginFormData) => {
     setIsLoading(true);
     try {
-      // TODO: Replace with actual API call
-      console.log("Login attempt:", data);
-      // Simulate API call delay
-      await new Promise((resolve) => setTimeout(resolve, 1200));
-      // Simulate error
-      // setError('root', { type: 'manual', message: 'Invalid credentials' });
+      const result = await signIn("credentials", {
+        redirect: false,
+        username: data.email,
+        password: data.password,
+      })
+      console.log("Login result:", result);
+      if (result?.error) {
+        setError("root", {
+          type: "manual",
+          message: result.code,
+        });
+      }
+
+      if (result?.ok && !result?.error) {
+        router.push('/')
+      }
     } catch (error) {
       setError("root", {
         type: "manual",
@@ -89,12 +102,12 @@ export default function LoginPage() {
                 <input
                   {...register("email", {
                     required: "Email is required",
-                    pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: "Please enter a valid email address",
-                    },
+                    // pattern: {
+                    //   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                    //   message: "Please enter a valid email address",
+                    // },
                   })}
-                  type="email"
+                  type="text"
                   id="email"
                   className={`block w-full pl-10 pr-3 py-3 border rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#004953] focus:border-transparent transition-colors ${
                     errors.email
