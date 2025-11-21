@@ -1,8 +1,14 @@
 import SidebarNav from "@/components/navigation/sidebarNav";
 import Header from "@/components/header";
 import { ReactNode } from "react";
+import { auth } from "../auth";
+import { redirect } from "next/navigation";
 
-const TMSLayout = ({ children }: { children: ReactNode }) => {
+const TMSLayout = async ({ children }: { children: ReactNode }) => {
+  const session = await auth();
+  if (!session){
+    redirect("/login")
+  }
   return (
     <div className="flex flex-col  h-screen bg-gray-100">
       <div className="h-[7vh] flex">
