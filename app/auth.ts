@@ -10,6 +10,7 @@ class InvalidLoginError extends CredentialsSignin {
 }
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  trustHost: true, // Add this line
   providers: [
     Credentials({
       credentials: {
@@ -29,14 +30,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           body: JSON.stringify({
             username: Credentials.username,
             password: Credentials.password,
-            expiresInMins: 30, // optional, defaults to 60
+            expiresInMins: 30,
           }),
-          credentials: "include", // Include cookies (e.g., accessToken) in the request
+          credentials: "include",
         });
 
         const userData = await user.json();
 
-        console.log("User Data:", userData); // Debugging line
+        console.log("User Data:", userData);
 
         if (user.ok && userData) {
           return {...userData, name: userData.firstName + " " + userData.lastName};
@@ -46,4 +47,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
     }),
   ],
+  pages: {
+    signIn: "/login",
+  },
 });
