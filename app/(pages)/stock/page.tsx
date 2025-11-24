@@ -1,27 +1,32 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { TyreTable } from "@/components/tyre-table";
 import { StatCard } from "@/components/ui/stat-card";
 import { mockTyres } from "@/data/tyres";
 import { Truck } from "lucide-react";
 import { signOut } from "next-auth/react";
+import AddTyreForm from "@/components/add-new-tyre-form"; // updated path
 
 export default function StockPage() {
-  // Compute simple stats from mock data
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Stats
   const total = mockTyres.length;
   const inUse = mockTyres.filter((t) => t.status === "Mounted").length;
   const inStore = mockTyres.filter((t) => t.status === "In Stock").length;
-  // Needs replacement heuristic: very low treadDepth (<= 3) or disposed
   const needsReplacement = mockTyres.filter(
     (t) =>
       (typeof t.treadDepth === "number" && t.treadDepth <= 3) ||
       t.status === "Disposed"
   ).length;
 
-  const handleAddTyre = () => {
-    // TODO: wire to actual add flow/modal
-    console.log("Add new tyre clicked");
-  };
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(false);
+
+  useEffect(() => {
+    document.body.style.overflow = isModalOpen ? "hidden" : "auto";
+  }, [isModalOpen]);
 
   return (
     <div className="mx-auto flex flex-col gap-6">
@@ -37,10 +42,37 @@ export default function StockPage() {
           />
         </div>
       </div>
+
       <div className="bg-white text-black rounded-lg shadow-md p-6 space-y-6">
-        <button onClick={() => signOut()}>Sign Out</button>
-        <TyreTable />
+        <div className="flex justify-between items-center mb-4">
+          <button
+            onClick={() => signOut()}
+            className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+          >
+            Sign Out
+          </button>
+        </div>
+
+        {/* Pass modal handler to TyreTable */}
+        <TyreTable onAdd={handleOpenModal} />
       </div>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center z-50">
+          <div className="bg-white rounded-lg w-full max-w-4xl p-6 relative">
+            <button
+              onClick={handleCloseModal}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+            >
+              ✕
+            </button>
+
+            <h2 className="text-xl font-bold mb-4">Add New Tyre</h2>
+            <AddTyreForm onCancel={handleCloseModal} />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

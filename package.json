@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.9",
     "@radix-ui/react-select": "^2.2.6",
     "@tanstack/react-table": "^8.21.3",
     "lucide-react": "^0.553.0",
