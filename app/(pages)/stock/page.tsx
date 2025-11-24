@@ -5,8 +5,7 @@ import { TyreTable } from "@/components/tyre-table";
 import { StatCard } from "@/components/ui/stat-card";
 import { mockTyres } from "@/data/tyres";
 import { Truck } from "lucide-react";
-import { signOut } from "next-auth/react";
-import AddTyreForm from "@/components/add-new-tyre-form"; // updated path
+import AddTyreForm from "@/components/add-new-tyre-form";
 
 export default function StockPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -44,16 +43,7 @@ export default function StockPage() {
       </div>
 
       <div className="bg-white text-black rounded-lg shadow-md p-6 space-y-6">
-        <div className="flex justify-between items-center mb-4">
-          <button
-            onClick={() => signOut()}
-            className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
-          >
-            Sign Out
-          </button>
-        </div>
-
-        {/* Pass modal handler to TyreTable */}
+        {/* Tyre table with Add Tyre handler */}
         <TyreTable onAdd={handleOpenModal} />
       </div>
 
