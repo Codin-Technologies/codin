@@ -1,13 +1,23 @@
-import SidebarNav from "@/components/navigation/sidebarNav";
+import dynamic from "next/dynamic";
 import Header from "@/components/header";
 import { ReactNode } from "react";
 
+// Dynamically import SidebarNav as a client component
+const SidebarNav = dynamic(
+  () => import("@/components/navigation/sidebarNav"),
+  {
+    ssr: false, // disable server-side rendering
+    loading: () => <div className="w-64 bg-white flex items-center justify-center">Loading sidebar...</div>, // optional fallback
+  }
+);
+
 const TMSLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className="flex flex-col  h-screen bg-gray-100">
+    <div className="flex flex-col h-screen bg-gray-100">
+      {/* Top header */}
       <div className="h-[7vh] flex">
         <div className="w-64 bg-white flex items-center justify-center">
-          <h2 className="text-2xl font-bold text-black">TMS Navigation </h2>
+          <h2 className="text-2xl font-bold text-black">TMS Navigation</h2>
         </div>
         <div className="flex-1">
           <Header
@@ -19,6 +29,8 @@ const TMSLayout = ({ children }: { children: ReactNode }) => {
           />
         </div>
       </div>
+
+      {/* Sidebar + main content */}
       <div className="h-[93vh] flex">
         <SidebarNav />
         <div className="p-8 h-[93vh] overflow-auto flex-1">{children}</div>
@@ -28,3 +40,4 @@ const TMSLayout = ({ children }: { children: ReactNode }) => {
 };
 
 export default TMSLayout;
+
