@@ -174,20 +174,30 @@ const TireMonitoringDashboard: React.FC = () => {
   }, []);
 
    return (
-    <div className="mx-auto flex flex-col gap-6">
-      {/* Header Section - Same style as stock page, no white background */}
-      <div className="flex flex-col gap-2">
-        <h1 className="text-2xl font-bold text-gray-900">
-          Tire Pressure Monitoring System
-        </h1>
-        <p className="text-gray-600 text-sm">Real-time Monitoring System</p>
+        <div className="min-h-screen bg-gray-50 p-6">
+      {/* Header */}
+      <div className="bg-white shadow-sm rounded-xl p-6 mb-6 border border-gray-100">
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900 mb-1">
+              Tire Pressure Monitoring System
+            </h1>
+            <p className="text-gray-500">Real-time monitoring and alerts</p>
+          </div>
 
-        <div className="flex items-center gap-3 mt-2">
-          <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-          <span className="text-gray-700">System Online</span>
-          <span className="text-gray-500">
-            Last Updated: {currentTime.toLocaleTimeString()}
-          </span>
+          <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-2 bg-green-50 px-4 py-2 rounded-lg border border-green-200">
+              <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></div>
+              <span className="text-green-700 font-semibold text-sm">System Online</span>
+            </div>
+
+            <div className="text-right">
+              <p className="text-xs text-gray-500">Last Updated</p>
+              <p className="text-sm font-semibold text-gray-700">
+                {currentTime.toLocaleTimeString()}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
