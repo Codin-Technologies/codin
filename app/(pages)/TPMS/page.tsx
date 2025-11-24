@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { Truck, TrendingUp, AlertTriangle, CheckCircle } from "lucide-react";
+import { Truck, TrendingUp, AlertTriangle, CheckCircle, User } from "lucide-react";
 
 /** --- Types --- **/
 type Pressures = {
@@ -22,7 +22,7 @@ type Vehicle = {
   updated: string;
 };
 
-/** --- Mock data generator --- **/
+/** --- Mock data generator (same as your design) --- **/
 const generateVehicleData = (): Vehicle[] => {
   const getRandomPressure = (min = 28, max = 35) =>
     (Math.random() * (max - min) + min).toFixed(1);
@@ -33,8 +33,8 @@ const generateVehicleData = (): Vehicle[] => {
       id: "001",
       license: "ABC-1234",
       status: "Moving",
-      statusColor: "text-green-600",
-      iconColor: "bg-green-50 text-green-600 border-green-200",
+      statusColor: "text-green-500",
+      iconColor: "bg-green-100 text-green-600",
       pressures: {
         frontLeft: getRandomPressure(31, 33),
         frontRight: getRandomPressure(31, 33),
@@ -48,8 +48,8 @@ const generateVehicleData = (): Vehicle[] => {
       id: "002",
       license: "XYZ-5678",
       status: "Critical",
-      statusColor: "text-red-600",
-      iconColor: "bg-red-50 text-red-600 border-red-200",
+      statusColor: "text-red-500",
+      iconColor: "bg-red-100 text-red-600",
       pressures: {
         frontLeft: "18.2",
         frontRight: "31.5",
@@ -63,8 +63,8 @@ const generateVehicleData = (): Vehicle[] => {
       id: "003",
       license: "DEF-9012",
       status: "Idle",
-      statusColor: "text-gray-600",
-      iconColor: "bg-gray-50 text-gray-600 border-gray-200",
+      statusColor: "text-gray-500",
+      iconColor: "bg-blue-100 text-blue-600",
       pressures: {
         frontLeft: getRandomPressure(32, 34),
         frontRight: getRandomPressure(32, 34),
@@ -78,8 +78,8 @@ const generateVehicleData = (): Vehicle[] => {
       id: "004",
       license: "GHI-3456",
       status: "Moving",
-      statusColor: "text-green-600",
-      iconColor: "bg-green-50 text-green-600 border-green-200",
+      statusColor: "text-green-500",
+      iconColor: "bg-green-100 text-green-600",
       pressures: {
         frontLeft: "31.9",
         frontRight: "27.3",
@@ -94,7 +94,7 @@ const generateVehicleData = (): Vehicle[] => {
       license: "JKL-7890",
       status: "Offline",
       statusColor: "text-gray-400",
-      iconColor: "bg-gray-50 text-gray-400 border-gray-200",
+      iconColor: "bg-gray-100 text-gray-600",
       pressures: {
         frontLeft: "-",
         frontRight: "-",
@@ -108,8 +108,8 @@ const generateVehicleData = (): Vehicle[] => {
       id: "006",
       license: "MNO-2468",
       status: "Moving",
-      statusColor: "text-green-600",
-      iconColor: "bg-green-50 text-green-600 border-green-200",
+      statusColor: "text-green-500",
+      iconColor: "bg-green-100 text-green-600",
       pressures: {
         frontLeft: getRandomPressure(31, 33),
         frontRight: getRandomPressure(31, 33),
@@ -128,7 +128,7 @@ const getPressureColor = (pressure: string) => {
   const p = parseFloat(pressure);
   if (isNaN(p)) return "bg-gray-400";
   if (p < 25) return "bg-red-500";
-  if (p < 28) return "bg-orange-500";
+  if (p < 28) return "bg-yellow-500";
   return "bg-green-500";
 };
 
@@ -137,12 +137,12 @@ const getPressureTextColor = (pressure: string) => {
   const p = parseFloat(pressure);
   if (isNaN(p)) return "text-gray-600";
   if (p < 25) return "text-red-600";
-  if (p < 28) return "text-orange-600";
+  if (p < 28) return "text-yellow-600";
   return "text-green-600";
 };
 
 /** --- Main component --- **/
-const TPMSPage: React.FC = () => {
+const TireMonitoringDashboard: React.FC = () => {
   const [vehicles, setVehicles] = useState<Vehicle[]>(generateVehicleData());
   const [currentTime, setCurrentTime] = useState<Date>(new Date());
 
@@ -163,7 +163,7 @@ const TPMSPage: React.FC = () => {
       }, 0) /
     Math.max(1, vehicles.filter((v) => v.status !== "Offline").length);
 
-  // Simulate real-time updates
+  // Simulate real-time updates (replace with websocket in prod)
   useEffect(() => {
     const interval = setInterval(() => {
       setVehicles(generateVehicleData());
@@ -173,234 +173,153 @@ const TPMSPage: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      {/* Header */}
-      <div className="bg-white shadow-sm rounded-xl p-6 mb-6 border border-gray-100">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-3xl font-bold text-gray-900 mb-1">
-              Tire Pressure Monitoring System
-            </h1>
-            <p className="text-gray-500">Real-time monitoring and alerts</p>
-          </div>
+   return (
+    <div className="mx-auto flex flex-col gap-6">
+      {/* Header Section - Same style as stock page, no white background */}
+      <div className="flex flex-col gap-2">
+        <h1 className="text-2xl font-bold text-gray-900">
+          Tire Pressure Monitoring System
+        </h1>
+        <p className="text-gray-600 text-sm">Real-time Monitoring System</p>
 
-          <div className="flex items-center space-x-6">
-            <div className="flex items-center space-x-2 bg-green-50 px-4 py-2 rounded-lg border border-green-200">
-              <div className="w-2.5 h-2.5 bg-green-500 rounded-full animate-pulse"></div>
-              <span className="text-green-700 font-semibold text-sm">System Online</span>
-            </div>
-
-            <div className="text-right">
-              <p className="text-xs text-gray-500">Last Updated</p>
-              <p className="text-sm font-semibold text-gray-700">
-                {currentTime.toLocaleTimeString()}
-              </p>
-            </div>
-          </div>
+        <div className="flex items-center gap-3 mt-2">
+          <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+          <span className="text-gray-700">System Online</span>
+          <span className="text-gray-500">
+            Last Updated: {currentTime.toLocaleTimeString()}
+          </span>
         </div>
       </div>
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-        <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100 hover:shadow-md transition-shadow">
-          <div className="flex items-center justify-between mb-3">
-            <p className="text-gray-600 text-sm font-medium">Total Vehicles</p>
-            <div className="bg-blue-100 p-3 rounded-xl">
-              <Truck className="text-blue-600" size={22} />
+        <div className="bg-white rounded-lg shadow-sm p-6">
+          <div className="flex items-center justify-between mb-2">
+            <p className="text-gray-600 text-sm">Total Vehicles</p>
+            <div className="bg-blue-100 p-3 rounded-lg">
+              <Truck className="text-blue-600" size={24} />
             </div>
           </div>
-          <p className="text-4xl font-bold text-gray-900">{totalVehicles}</p>
-          <p className="text-xs text-gray-500 mt-2">All registered vehicles</p>
+          <p className="text-3xl font-bold text-gray-900">{totalVehicles}</p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100 hover:shadow-md transition-shadow">
-          <div className="flex items-center justify-between mb-3">
-            <p className="text-gray-600 text-sm font-medium">Active Vehicles</p>
-            <div className="bg-green-100 p-3 rounded-xl">
-              <CheckCircle className="text-green-600" size={22} />
+        <div className="bg-white rounded-lg shadow-sm p-6">
+          <div className="flex items-center justify-between mb-2">
+            <p className="text-gray-600 text-sm">Active Vehicles</p>
+            <div className="bg-green-100 p-3 rounded-lg">
+              <CheckCircle className="text-green-600" size={24} />
             </div>
           </div>
-          <p className="text-4xl font-bold text-green-600">{activeVehicles}</p>
-          <p className="text-xs text-gray-500 mt-2">Currently moving</p>
+          <p className="text-3xl font-bold text-green-600">{activeVehicles}</p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100 hover:shadow-md transition-shadow">
-          <div className="flex items-center justify-between mb-3">
-            <p className="text-gray-600 text-sm font-medium">Critical Alerts</p>
-            <div className="bg-red-100 p-3 rounded-xl">
-              <AlertTriangle className="text-red-600" size={22} />
+        <div className="bg-white rounded-lg shadow-sm p-6">
+          <div className="flex items-center justify-between mb-2">
+            <p className="text-gray-600 text-sm">Critical Alerts</p>
+            <div className="bg-red-100 p-3 rounded-lg">
+              <AlertTriangle className="text-red-600" size={24} />
             </div>
           </div>
-          <p className="text-4xl font-bold text-red-600">{criticalAlerts}</p>
-          <p className="text-xs text-gray-500 mt-2">Require immediate attention</p>
+          <p className="text-3xl font-bold text-red-600">{criticalAlerts}</p>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100 hover:shadow-md transition-shadow">
-          <div className="flex items-center justify-between mb-3">
-            <p className="text-gray-600 text-sm font-medium">Avg Pressure</p>
-            <div className="bg-purple-100 p-3 rounded-xl">
-              <TrendingUp className="text-purple-600" size={22} />
+        <div className="bg-white rounded-lg shadow-sm p-6">
+          <div className="flex items-center justify-between mb-2">
+            <p className="text-gray-600 text-sm">Avg Pressure</p>
+            <div className="bg-purple-100 p-3 rounded-lg">
+              <TrendingUp className="text-purple-600" size={24} />
             </div>
           </div>
-          <p className="text-4xl font-bold text-gray-900">{avgPressure.toFixed(1)}</p>
-          <p className="text-xs text-gray-500 mt-2">PSI across fleet</p>
+          <p className="text-3xl font-bold text-gray-900">{avgPressure.toFixed(1)} PSI</p>
         </div>
       </div>
 
       {/* Vehicle Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {vehicles.map((vehicle) => (
-          <div
-            key={vehicle.id}
-            className="bg-white rounded-xl shadow-sm p-6 border border-gray-100 hover:shadow-lg transition-all duration-200 hover:border-gray-200"
-          >
+          <div key={vehicle.id} className="bg-white rounded-lg shadow-sm p-6">
             {/* Vehicle Header */}
-            <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-100">
+            <div className="flex items-center justify-between mb-6">
               <div className="flex items-center space-x-3">
-                <div className={`${vehicle.iconColor} p-3 rounded-xl border`}>
-                  <Truck size={22} strokeWidth={2.5} />
+                <div className={`${vehicle.iconColor} p-3 rounded-lg`}>
+                  <Truck size={24} />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 text-lg">
-                    Vehicle #{vehicle.id}
-                  </h3>
-                  <p className="text-sm text-gray-500">License: {vehicle.license}</p>
+                  <h3 className="font-bold text-gray-900">Vehicle #{vehicle.id}</h3>
+                  <p className="text-sm text-gray-600">License: {vehicle.license}</p>
                 </div>
               </div>
               <div className="flex items-center space-x-2">
-                <div
-                  className={`w-2 h-2 rounded-full ${
-                    vehicle.status === "Moving"
-                      ? "bg-green-500"
-                      : vehicle.status === "Critical"
-                      ? "bg-red-500"
-                      : vehicle.status === "Idle"
-                      ? "bg-gray-400"
-                      : "bg-gray-300"
-                  }`}
-                ></div>
-                <span className={`text-sm font-semibold ${vehicle.statusColor}`}>
+                <div className={`w-2 h-2 rounded-full ${vehicle.status === 'Moving' ? 'bg-green-500' : vehicle.status === 'Critical' ? 'bg-red-500' : vehicle.status === 'Idle' ? 'bg-gray-400' : 'bg-gray-300'}`}></div>
+                <span className={`text-sm font-medium ${vehicle.statusColor}`}>
                   {vehicle.status}
                 </span>
               </div>
             </div>
 
-            {/* Tire Pressure Visualization */}
-            <div className="space-y-6">
+            {/* Tire Pressure Grid */}
+            <div className="space-y-4">
               {/* Front Tires */}
-              <div className="flex items-center justify-between px-4">
+              <div className="flex items-center justify-between">
                 <div className="flex flex-col items-center space-y-2">
-                  <span
-                    className={`${getPressureColor(
-                      vehicle.pressures.frontLeft
-                    )} text-white text-xs font-bold px-4 py-2 rounded-full shadow-sm min-w-[60px] text-center`}
-                  >
+                  <span className={`${getPressureColor(vehicle.pressures.frontLeft)} text-white text-sm font-bold px-3 py-1 rounded-full`}>
                     {vehicle.pressures.frontLeft}
                   </span>
+                  <Truck className="text-gray-300" size={48} />
                 </div>
-                <Truck className="text-gray-300" size={56} strokeWidth={1.5} />
                 <div className="flex flex-col items-center space-y-2">
-                  <span
-                    className={`${getPressureColor(
-                      vehicle.pressures.frontRight
-                    )} text-white text-xs font-bold px-4 py-2 rounded-full shadow-sm min-w-[60px] text-center`}
-                  >
+                  <span className={`${getPressureColor(vehicle.pressures.frontRight)} text-white text-sm font-bold px-3 py-1 rounded-full`}>
                     {vehicle.pressures.frontRight}
                   </span>
                 </div>
               </div>
 
               {/* Rear Tires */}
-              <div className="flex items-center justify-between px-4">
+              <div className="flex items-center justify-between">
                 <div className="flex flex-col items-center space-y-2">
-                  <span
-                    className={`${getPressureColor(
-                      vehicle.pressures.rearLeft
-                    )} text-white text-xs font-bold px-4 py-2 rounded-full shadow-sm min-w-[60px] text-center`}
-                  >
+                  <span className={`${getPressureColor(vehicle.pressures.rearLeft)} text-white text-sm font-bold px-3 py-1 rounded-full`}>
                     {vehicle.pressures.rearLeft}
                   </span>
                 </div>
-                <div className="w-14"></div>
                 <div className="flex flex-col items-center space-y-2">
-                  <span
-                    className={`${getPressureColor(
-                      vehicle.pressures.rearRight
-                    )} text-white text-xs font-bold px-4 py-2 rounded-full shadow-sm min-w-[60px] text-center`}
-                  >
+                  <span className={`${getPressureColor(vehicle.pressures.rearRight)} text-white text-sm font-bold px-3 py-1 rounded-full`}>
                     {vehicle.pressures.rearRight}
                   </span>
                 </div>
               </div>
 
               {/* Pressure Details */}
-              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-gray-100">
-                <div className="bg-gray-50 rounded-lg p-3">
-                  <p className="text-xs text-gray-500 mb-1 font-medium">Front Left</p>
-                  <p
-                    className={`text-xl font-bold ${getPressureTextColor(
-                      vehicle.pressures.frontLeft
-                    )}`}
-                  >
-                    {vehicle.pressures.frontLeft}{" "}
-                    <span className="text-sm font-normal text-gray-500">PSI</span>
+              <div className="grid grid-cols-2 gap-4 pt-4 border-t border-gray-200">
+                <div>
+                  <p className="text-xs text-gray-600 mb-1">Front Left</p>
+                  <p className={`text-lg font-bold ${getPressureTextColor(vehicle.pressures.frontLeft)}`}>
+                    {vehicle.pressures.frontLeft} PSI
                   </p>
                 </div>
-                <div className="bg-gray-50 rounded-lg p-3">
-                  <p className="text-xs text-gray-500 mb-1 font-medium">Front Right</p>
-                  <p
-                    className={`text-xl font-bold ${getPressureTextColor(
-                      vehicle.pressures.frontRight
-                    )}`}
-                  >
-                    {vehicle.pressures.frontRight}{" "}
-                    <span className="text-sm font-normal text-gray-500">PSI</span>
+                <div>
+                  <p className="text-xs text-gray-600 mb-1">Front Right</p>
+                  <p className={`text-lg font-bold ${getPressureTextColor(vehicle.pressures.frontRight)}`}>
+                    {vehicle.pressures.frontRight} PSI
                   </p>
                 </div>
-                <div className="bg-gray-50 rounded-lg p-3">
-                  <p className="text-xs text-gray-500 mb-1 font-medium">Rear Left</p>
-                  <p
-                    className={`text-xl font-bold ${getPressureTextColor(
-                      vehicle.pressures.rearLeft
-                    )}`}
-                  >
-                    {vehicle.pressures.rearLeft}{" "}
-                    <span className="text-sm font-normal text-gray-500">PSI</span>
+                <div>
+                  <p className="text-xs text-gray-600 mb-1">Rear Left</p>
+                  <p className={`text-lg font-bold ${getPressureTextColor(vehicle.pressures.rearLeft)}`}>
+                    {vehicle.pressures.rearLeft} PSI
                   </p>
                 </div>
-                <div className="bg-gray-50 rounded-lg p-3">
-                  <p className="text-xs text-gray-500 mb-1 font-medium">Rear Right</p>
-                  <p
-                    className={`text-xl font-bold ${getPressureTextColor(
-                      vehicle.pressures.rearRight
-                    )}`}
-                  >
-                    {vehicle.pressures.rearRight}{" "}
-                    <span className="text-sm font-normal text-gray-500">PSI</span>
+                <div>
+                  <p className="text-xs text-gray-600 mb-1">Rear Right</p>
+                  <p className={`text-lg font-bold ${getPressureTextColor(vehicle.pressures.rearRight)}`}>
+                    {vehicle.pressures.rearRight} PSI
                   </p>
                 </div>
               </div>
 
-              {/* Vehicle Info Footer */}
-              <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                <div className="flex items-center space-x-2">
-                  <div className="bg-blue-50 p-2 rounded-lg">
-                    <TrendingUp className="text-blue-600" size={16} />
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-500">Speed</p>
-                    <p className="text-sm font-semibold text-gray-700">
-                      {vehicle.speed} mph
-                    </p>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <p className="text-xs text-gray-500">Updated</p>
-                  <p className="text-sm font-semibold text-gray-700">
-                    {vehicle.updated}
-                  </p>
-                </div>
+              {/* Vehicle Info */}
+              <div className="flex items-center justify-between pt-4 border-t border-gray-200 text-sm text-gray-600">
+                <span>Speed: {vehicle.speed} mph</span>
+                <span>Updated: {vehicle.updated}</span>
               </div>
             </div>
           </div>
@@ -410,4 +329,4 @@ const TPMSPage: React.FC = () => {
   );
 };
 
-export default TPMSPage;
+export default TireMonitoringDashboard;
