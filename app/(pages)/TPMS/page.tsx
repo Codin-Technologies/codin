@@ -173,32 +173,33 @@ const TireMonitoringDashboard: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      {/* Header */}
-      <div className="bg-white shadow-sm rounded-lg p-6 mb-6 flex items-center justify-between">
-        <div className="flex items-center space-x-4">
-          <div className="bg-blue-500 rounded-lg p-3">
-            <Truck className="text-white" size={32} />
-          </div>
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900">TyreMon Pro</h1>
-            <p className="text-gray-600">Real-time Monitoring System</p>
-          </div>
-        </div>
-        <div className="flex items-center space-x-6">
-          <div className="flex items-center space-x-2">
-            <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-            <span className="text-gray-700 font-medium">System Online</span>
-          </div>
-          <span className="text-gray-600">
-            Last Updated: {currentTime.toLocaleTimeString()}
-          </span>
-          <button className="p-2 hover:bg-gray-100 rounded-full">
-            <User className="text-gray-600" size={24} />
-          </button>
+return (
+  <div className="min-h-screen bg-gray-50 p-6">
+    {/* Header */}
+    <div className="bg-white shadow-sm rounded-lg p-6 mb-6 flex items-center justify-between">
+      <div className="flex items-center space-x-4">
+        {/* Removed Icon */}
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900">
+            Tire Pressure Monitoring System
+          </h1>
+          <p className="text-gray-600">Real-time Monitoring System</p>
         </div>
       </div>
+
+      <div className="flex items-center space-x-6">
+        <div className="flex items-center space-x-2">
+          <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+          <span className="text-gray-700 font-medium">System Online</span>
+        </div>
+
+        <span className="text-gray-600">
+          Last Updated: {currentTime.toLocaleTimeString()}
+        </span>
+
+        {/* Removed user icon */}
+      </div>
+    </div>
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
