@@ -21,7 +21,7 @@ const SidebarNav = () => {
       }`}
     >
       {/* Toggle Button */}
-      <div className="flex justify-end p-4 pb-2">
+      <div className="flex justify-end p-2 pb-1">
         <button
           onClick={toggleSidebar}
           className="p-2 rounded-lg hover:bg-gray-200 transition-colors"
@@ -36,7 +36,7 @@ const SidebarNav = () => {
       </div>
 
       {/* Navigation Items */}
-      <nav className={`space-y-1 mt-0 ${isCollapsed ? "px-3" : "px-4"}`}>
+      <nav className={`space-y-1 mt-1 ${isCollapsed ? "px-3" : "px-4"}`}>
         {sidebarItems.map((item, index) => {
           const Icon = item.icon;
           const isActive = pathname === item.href;
