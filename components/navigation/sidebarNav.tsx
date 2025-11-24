@@ -36,7 +36,7 @@ const SidebarNav = () => {
       </div>
 
       {/* Navigation Items */}
-      <nav className={`space-y-1 ${isCollapsed ? "px-3" : "px-4"}`}>
+      <nav className={`space-y-1 ${isCollapsed ? "px-2" : "px-2"}`}>
         {sidebarItems.map((item, index) => {
           const Icon = item.icon;
           const isActive = pathname === item.href;
