@@ -1,5 +1,5 @@
 import Header from "@/components/header";
-import SidebarWrapper from "@/components/navigation/SidebarWrapper";
+import SidebarWrapper from "@/components/navigation/SideBarWrapper";
 import { ReactNode } from "react";
 
 const TMSLayout = ({ children }: { children: ReactNode }) => {
