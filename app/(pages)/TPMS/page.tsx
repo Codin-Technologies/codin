@@ -183,7 +183,7 @@ const TireMonitoringDashboard: React.FC = () => {
           </div>
           <div>
             <h1 className="text-2xl font-bold text-gray-900">TPMS</h1>
-            <p className="text-gray-600">Real-time Monitoring System</p>
+            <p className="text-gray-600">Real-time Tire Pressure Monitoring System</p>
           </div>
         </div>
         <div className="flex items-center space-x-6">
