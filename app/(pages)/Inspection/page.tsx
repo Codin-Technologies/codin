@@ -17,13 +17,13 @@ const mockInspection = {
   ],
 };
 
-const statusColors: any = {
+const statusColors: Record<string, string> = {
   OK: "text-green-600 bg-green-100",
   LOW: "text-yellow-600 bg-yellow-100",
   CRITICAL: "text-red-600 bg-red-100",
 };
 
-export default function InspectionPage() {
+export default function InspectionPage({ params }: { params: any }) {
   return (
     <div className="p-6 space-y-6">
       {/* PAGE HEADING */}
