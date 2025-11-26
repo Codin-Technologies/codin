@@ -182,7 +182,7 @@ const TireMonitoringDashboard: React.FC = () => {
             <Truck className="text-white" size={32} />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">TyreMon Pro</h1>
+            <h1 className="text-2xl font-bold text-gray-900">TPMS</h1>
             <p className="text-gray-600">Real-time Monitoring System</p>
           </div>
         </div>
