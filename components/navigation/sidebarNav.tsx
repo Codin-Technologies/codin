@@ -6,7 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const SidebarNav = () => {
+export default function SidebarNav() {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const pathname = usePathname();
 
@@ -69,6 +69,4 @@ const SidebarNav = () => {
       </nav>
     </div>
   );
-};
-
-export default SidebarNav;
+}

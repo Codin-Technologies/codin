@@ -1,5 +1,5 @@
 import Header from "@/components/header";
-import SidebarWrapper from "@/components/navigation/SideBarWrapper";
+import SidebarNav from "@/components/navigation/sidebarNav";
 import { ReactNode } from "react";
 
 const TMSLayout = ({ children }: { children: ReactNode }) => {
@@ -22,7 +22,7 @@ const TMSLayout = ({ children }: { children: ReactNode }) => {
 
       {/* Sidebar + main content */}
       <div className="h-[93vh] flex">
-        <SidebarWrapper /> {/* client component */}
+        <SidebarNav /> {/* Updated: Direct import, no wrapper needed */}
         <div className="p-8 h-[93vh] overflow-auto flex-1">{children}</div>
       </div>
     </div>
