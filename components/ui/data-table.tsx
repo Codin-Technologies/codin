@@ -186,7 +186,6 @@ export function DataTable<TData, TValue>({
             <ChevronsLeft className="h-4 w-4" />
           </Button> */}
           <Button
-            variant="outline"
             className="h-8 w-8 p-0"
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
@@ -201,7 +200,6 @@ export function DataTable<TData, TValue>({
             </span>
           </div>
           <Button
-            variant="outline"
             className="h-8 w-8 p-0"
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
