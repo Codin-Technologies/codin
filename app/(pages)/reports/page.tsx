@@ -255,7 +255,11 @@ export default function ReportsPage() {
                 cx="50%"
                 cy="50%"
                 labelLine={false}
-                label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+                label={({ name, value }: any) => {
+                  const total = brandDistribution.reduce((sum, item) => sum + item.value, 0);
+                  const percentage = ((value / total) * 100).toFixed(0);
+                  return `${name} ${percentage}%`;
+                }}
                 outerRadius={100}
                 fill="#8884d8"
                 dataKey="value"
